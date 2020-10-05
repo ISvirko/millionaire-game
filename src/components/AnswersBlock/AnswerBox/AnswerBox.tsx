@@ -18,7 +18,7 @@ import IntTheme from '../../../typescriptExports/IntTheme';
 import routes from '../../../routes';
 import scores from '../../../scores.json';
 
-const TIMEOUT = 1000;
+const TIMEOUT = 4000;
 
 interface IntAnswerBox {
   option: string;
