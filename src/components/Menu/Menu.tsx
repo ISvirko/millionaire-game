@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 import { useSelector } from 'react-redux';
 import gameSelectors from '../../redux/gameSelectors';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
-import ScoreDisplay from './ScoreDisplay';
+import ScoreDisplay from './ScoreDisplay/ScoreDisplay';
 import useWindowWidth from '../../helpers/useWindowWidth';
 import IntTheme from '../../typescriptExports/IntTheme';
 import scores from '../../scores.json';

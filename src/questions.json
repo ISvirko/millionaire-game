@@ -325,14 +325,14 @@
           "correct": 3
         },
         {
-          "question": "In aviation, what does UFO stand for?",
+          "correct": 3,
           "content": [
-            "Unified Flying Object",
-            "Unitary Flinging Obsession",
-            "United Flag Opposition",
-            "Unidentified Flying Object"
+            "the infrared light kills bacteria in the body",
+            "resistance power increases",
+            "the pigment cells in the skin get stimulated and produce a healthy tan",
+            "the ultraviolet rays convert skin oil into Vitamin D"
           ],
-          "correct": 3
+          "question": "Exposure to sunlight helps a person improve his health because"
         },
         {
           "correct": 0,

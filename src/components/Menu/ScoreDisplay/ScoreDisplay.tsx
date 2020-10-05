@@ -1,6 +1,6 @@
 import React from 'react';
-import useWindowWidth from '../../helpers/useWindowWidth';
-import { StyledSvg } from './Menu.styles';
+import useWindowWidth from '../../../helpers/useWindowWidth';
+import { StyledSvg } from '../Menu.styles';
 
 interface IntScore {
   stroke: string;

@@ -18,7 +18,7 @@ import IntTheme from '../../../typescriptExports/IntTheme';
 import routes from '../../../routes';
 import scores from '../../../scores.json';
 
-const TIMEOUT = 4000;
+const TIMEOUT = 1000;
 
 interface IntAnswerBox {
   option: string;
@@ -63,7 +63,9 @@ const AnswerBox = ({
       dispatch(gameSlice.currentIdx.actions.setCurrentIdx(nextIndex));
       dispatch(gameSlice.score.actions.setScore(scores.rewards[nextIndex]));
       setStatus(EnumAnswerStatus.Initial);
-      backgroundSound.play();
+      if (quizSet && nextIndex <= quizSet.length - 1) {
+        backgroundSound.play();
+      }
     }, TIMEOUT);
   };
 
@@ -128,8 +130,6 @@ const AnswerBox = ({
       disabled={disabled}
       stroke={colorScheme.stroke}
       fill={colorScheme.fill}
-      optionColor={colors.orange100}
-      answerColor={colors.black100}
       option={option}
       answer={answer}
     />

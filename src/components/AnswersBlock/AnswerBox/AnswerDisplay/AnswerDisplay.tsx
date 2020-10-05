@@ -1,24 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 import useWindowWidth from '../../../../helpers/useWindowWidth';
-
-const StyledAnswerBox = styled.button`
-  margin-bottom: 8px;
-
-  @media (min-width: 1024px) {
-    &:nth-child(-n + 2) {
-      margin-bottom: 32px;
-    }
-  }
-`;
+import {
+  StyledAnswerBox,
+  InnerSvgWrapper,
+  Option,
+  Answer,
+} from './AnswerDisplay.styles';
 
 interface IntAnswerBox {
   handleClick: () => void;
   disabled: boolean;
   stroke: string;
   fill: string;
-  optionColor: string;
-  answerColor: string;
   option: string;
   answer: string;
 }
@@ -28,8 +21,6 @@ const AnswerDisplay = ({
   disabled,
   stroke,
   fill,
-  optionColor,
-  answerColor,
   option,
   answer,
 }: IntAnswerBox) => {
@@ -57,12 +48,12 @@ const AnswerDisplay = ({
               fill={fill}
               stroke={stroke}
             />
-            <text x="45" y="33" fontSize="14" fill={optionColor}>
-              {option}
-            </text>
-            <text x="65" y="33" fontSize="14" fill={answerColor}>
-              {answer}
-            </text>
+            <foreignObject x="45" y="5" width="230" height="100%">
+              <InnerSvgWrapper>
+                <Option>{option}</Option>
+                <Answer>{answer}</Answer>
+              </InnerSvgWrapper>
+            </foreignObject>
           </svg>
         </StyledAnswerBox>
       ) : (
@@ -85,12 +76,12 @@ const AnswerDisplay = ({
               fill={fill}
               stroke={stroke}
             />
-            <text x="50" y="42" fontSize="20" fill={optionColor}>
-              {option}
-            </text>
-            <text x="76" y="42" fontSize="20" fill={answerColor}>
-              {answer}
-            </text>
+            <foreignObject x="52" y="7" width="302" height="100%">
+              <InnerSvgWrapper>
+                <Option>{option}</Option>
+                <Answer>{answer}</Answer>
+              </InnerSvgWrapper>
+            </foreignObject>
           </svg>
         </StyledAnswerBox>
       )}
