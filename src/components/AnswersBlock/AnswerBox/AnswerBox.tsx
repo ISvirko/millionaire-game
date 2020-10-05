@@ -63,6 +63,7 @@ const AnswerBox = ({
       dispatch(gameSlice.currentIdx.actions.setCurrentIdx(nextIndex));
       dispatch(gameSlice.score.actions.setScore(scores.rewards[nextIndex]));
       setStatus(EnumAnswerStatus.Initial);
+      setDisabled(false);
       if (quizSet && nextIndex <= quizSet.length - 1) {
         backgroundSound.play();
       }
@@ -78,7 +79,6 @@ const AnswerBox = ({
       if (isCorrect) {
         handleSound(clickedSound, correctSound);
         setStatus(EnumAnswerStatus.Correct);
-        setDisabled(false);
 
         handleNextQuestion();
       }
@@ -86,7 +86,6 @@ const AnswerBox = ({
       if (!isCorrect) {
         handleSound(clickedSound, incorrectSound);
         setStatus(EnumAnswerStatus.Incorrect);
-        setDisabled(false);
 
         handleFinishGame();
       }
