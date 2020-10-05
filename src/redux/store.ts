@@ -10,6 +10,7 @@ const store = configureStore({
     [gameSlice.quizSet.name]: gameSlice.quizSet.reducer,
     [gameSlice.currentIdx.name]: gameSlice.currentIdx.reducer,
     [gameSlice.score.name]: gameSlice.score.reducer,
+    [gameSlice.showAnswer.name]: gameSlice.showAnswer.reducer,
   }),
 
   middleware: getDefaultMiddleware({

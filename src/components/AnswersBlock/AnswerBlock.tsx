@@ -8,6 +8,7 @@ const OPTIONS = ['A', 'B', 'C', 'D'];
 
 const AnswersBlock = () => {
   const { quizSet, currentIdx } = useSelector(gameSelectors);
+
   const [disabled, setDisabled] = useState(false);
 
   return (

@@ -24,4 +24,12 @@ const score = createSlice({
   },
 });
 
-export default { quizSet, currentIdx, score };
+const showAnswer = createSlice({
+  name: 'showAnswer',
+  initialState: false,
+  reducers: {
+    setShowAnswer: (_, { payload }) => payload,
+  },
+});
+
+export default { quizSet, currentIdx, score, showAnswer };

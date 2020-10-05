@@ -8,8 +8,5 @@
     "react": {
       "version": "detect"
     }
-  },
-  "rules": {
-    "func-names": "off"
   }
 }

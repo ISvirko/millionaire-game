@@ -5,6 +5,7 @@ interface IntState {
   quizSet: IntQuestion[];
   currentIdx: number;
   score: number;
+  showAnswer: boolean;
 }
 
 const gameSelectors = createSelector(
@@ -12,6 +13,7 @@ const gameSelectors = createSelector(
     quizSet: state.quizSet,
     currentIdx: state.currentIdx,
     score: state.score,
+    showAnswer: state.showAnswer,
   }),
   state => state,
 );

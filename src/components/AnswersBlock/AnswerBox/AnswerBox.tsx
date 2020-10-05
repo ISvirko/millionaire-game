@@ -37,7 +37,7 @@ const AnswerBox = ({
 }: IntAnswerBox) => {
   const [status, setStatus] = useState(EnumAnswerStatus.Initial);
 
-  const { quizSet, currentIdx } = useSelector(gameSelectors);
+  const { quizSet, currentIdx, showAnswer } = useSelector(gameSelectors);
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -47,6 +47,7 @@ const AnswerBox = ({
   const handleFinishGame = () => {
     setTimeout(() => {
       setStatus(EnumAnswerStatus.Initial);
+      dispatch(gameSlice.showAnswer.actions.setShowAnswer(false));
       history.push(routes.gameOver);
     }, TIMEOUT);
   };
@@ -64,12 +65,14 @@ const AnswerBox = ({
       dispatch(gameSlice.score.actions.setScore(scores.rewards[nextIndex]));
       setStatus(EnumAnswerStatus.Initial);
       setDisabled(false);
+
       if (quizSet && nextIndex <= quizSet.length - 1) {
         backgroundSound.play();
       }
     }, TIMEOUT);
   };
 
+  // HANDLE CLICK
   const handleClick = () => {
     if (disabled) return;
 
@@ -81,14 +84,13 @@ const AnswerBox = ({
       if (isCorrect) {
         handleSound(clickedSound, correctSound);
         setStatus(EnumAnswerStatus.Correct);
-
         handleNextQuestion();
       }
 
       if (!isCorrect) {
         handleSound(clickedSound, incorrectSound);
         setStatus(EnumAnswerStatus.Incorrect);
-
+        dispatch(gameSlice.showAnswer.actions.setShowAnswer(true));
         handleFinishGame();
       }
     }, TIMEOUT);
@@ -104,7 +106,10 @@ const AnswerBox = ({
         stroke: colors.orange100,
       };
 
-    if (status === EnumAnswerStatus.Correct)
+    if (
+      status === EnumAnswerStatus.Correct ||
+      (disabled && isCorrect && showAnswer)
+    )
       return {
         fill: colors.green5,
         stroke: colors.green100,
