@@ -32,7 +32,7 @@ const AnswerDisplay = ({
         <StyledAnswerBox
           type="button"
           onClick={handleClick}
-          disabled={disabled}
+          notClickable={disabled}
         >
           <svg
             width="320"
@@ -60,7 +60,7 @@ const AnswerDisplay = ({
         <StyledAnswerBox
           type="button"
           onClick={handleClick}
-          disabled={disabled}
+          notClickable={disabled}
         >
           <svg
             width="405"

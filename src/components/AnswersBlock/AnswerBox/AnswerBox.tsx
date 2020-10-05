@@ -71,6 +71,8 @@ const AnswerBox = ({
   };
 
   const handleClick = () => {
+    if (disabled) return;
+
     handleSound(backgroundSound, clickedSound);
     setStatus(EnumAnswerStatus.Clicked);
     setDisabled(true);

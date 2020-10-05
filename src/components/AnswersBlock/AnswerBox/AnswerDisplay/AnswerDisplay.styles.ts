@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const StyledAnswerBox = styled.button`
+interface IntAnswer {
+  notClickable: boolean;
+}
+
+export const StyledAnswerBox = styled.button<IntAnswer>`
   margin-bottom: 8px;
+  cursor: ${({ notClickable }) => (notClickable ? 'auto' : 'pointer')};
 
   @media (min-width: 1024px) {
     &:nth-child(-n + 2) {
